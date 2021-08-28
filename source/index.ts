@@ -61,7 +61,7 @@ bot.telegram.getMe().then((botInfo) => {
 
 bot.use(userAllowList);
 
-bot.command('start', sendError, async (ctx: MContext) => {
+bot.command('baslat', sendError, async (ctx: MContext) => {
     const builder = [];
     const { lang } = ctx.state;
     builder.push(i18n[lang]['WELCOME']);
@@ -76,7 +76,7 @@ bot.command('start', sendError, async (ctx: MContext) => {
     await ctx.replyWithMarkdown(builder.join('\n'));
 });
 
-bot.command('help', sendError, async (ctx: MContext) => {
+bot.command('yardi', sendError, async (ctx: MContext) => {
     const builder = [];
     const { lang } = ctx.state;
     builder.push(i18n[lang]['SUB_USAGE']);
@@ -93,17 +93,17 @@ bot.command('help', sendError, async (ctx: MContext) => {
     await ctx.replyWithMarkdown(builder.join('\n'));
 });
 
-bot.command('sub', sendError, isAdmin, getUrl, testUrl, sub);
+bot.command('subs', sendError, isAdmin, getUrl, testUrl, sub);
 
-bot.command('unsub', sendError, isAdmin, getUrl, unsub);
+bot.command('unsubs', sendError, isAdmin, getUrl, unsub);
 
-bot.command('unsubthis', sendError, isAdmin, getUrlByTitle, unsub);
+bot.command('unsubsthis', sendError, isAdmin, getUrlByTitle, unsub);
 
-bot.command('rss', sendError, isAdmin, rss);
+bot.command('rs', sendError, isAdmin, rss);
 
-bot.command('export', sendError, isAdmin, exportToOpml);
+bot.command('exports', sendError, isAdmin, exportToOpml);
 
-bot.command('import', importReply);
+bot.command('imports', importReply);
 
 bot.on(
     'document',
@@ -143,7 +143,7 @@ bot.command(
 );
 
 bot.command(
-    'allunsub',
+    'allunsubs',
     sendError,
     isAdmin,
     // RSS.unsubAll,
