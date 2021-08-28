@@ -71,9 +71,9 @@ const send = async (
         const feedItems = toSend;
         subscribers.map(async (subscribe) => {
             const userId = subscribe.user_id;
-            let text = `<b>${sanitize(feed.feed_title)}</b>\n`;
+            let text = `<b>${sanitize(feed.feed_title)}</b>`;
             feedItems.forEach(function (item) {
-                text += `\n${sanitize(item.title)}`;
+                text += `\n\n${sanitize(item.title)}`;
             });
             try {
                 await bot.telegram.sendMessage(userId, text, {
